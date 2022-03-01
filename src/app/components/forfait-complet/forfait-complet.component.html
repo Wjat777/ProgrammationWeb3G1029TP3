@@ -1,0 +1,36 @@
+<!--forfait-complet.component.html-->
+<!--Par: William John Adam Trindade-->
+<!--2021-11-14-->
+<div>
+  <mat-card>
+    <div>
+      <img class="imageHotel" src="{{ forfait.hotel.imagePath }}" />
+    </div>
+
+    <mat-card-subtitle
+      >{{ forfait.destination }} De {{ forfait.villeDepart }}</mat-card-subtitle
+    >
+    <mat-card-title>{{ forfait.hotel.nom }}</mat-card-title>
+    <rating-star [stars]="forfait.hotel.nombreEtoiles"></rating-star>
+    <p>Ce hotel offre: {{ forfait.hotel.caracteristiques }}</p>
+    <p>Coordonnes:{{ forfait.hotel.coordonnees }}</p>
+    <a href="{{ forfait.hotel.url }}" target="_blank"
+      >Visiter le site du hotel</a
+    >
+    <div>
+      <p *ngIf="forfait.rabais > 0; else elseBlock">
+        <span class="rabais">{{ forfait.prix }}$</span>
+        <span class="prix"> {{ forfait.prix - forfait.rabais }}$</span>
+      </p>
+      <ng-template #elseBlock>
+        <p class="prix">{{ forfait.prix }}$</p>
+      </ng-template>
+      <p class="taxes">{{ forfait.taxes }}</p>
+      <p class="dates">
+        {{ forfait.dateDepart | date: "shortDate" }} -
+        {{ forfait.dateRetour | date: "shortDate" }}
+      </p>
+      <button class="btn btn-success">Commentaires</button>
+    </div>
+  </mat-card>
+</div>

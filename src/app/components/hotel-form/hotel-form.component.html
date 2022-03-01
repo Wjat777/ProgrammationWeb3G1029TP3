@@ -1,0 +1,109 @@
+<form #hotelForm="ngForm">
+  <mat-form-field appearance="fill" class="full-width">
+    <mat-label>Nom de l'hôtel</mat-label>
+    <input
+      name="nom"
+      [(ngModel)]="hotel.nom"
+      #nom="ngModel"
+      required
+      matInput
+      placeholder="hotel nom"
+    />
+    <mat-error
+      *ngIf="
+        nom.invalid && (nom.dirty || nom.touched) && nom.hasError('required')
+      "
+    >
+      Nom de l'hotel obligatoire.</mat-error
+    >
+  </mat-form-field>
+  <mat-form-field appearance="fill" class="full-width">
+    <mat-label>Coordonées</mat-label>
+    <input
+      name="coordonnees"
+      [(ngModel)]="hotel.coordonnees"
+      #coordonnees="ngModel"
+      required
+      matInput
+      placeholder="adresse"
+    />
+    <mat-error
+      *ngIf="
+        coordonnees.invalid &&
+        (coordonnees.dirty || coordonnees.touched) &&
+        coordonnees.hasError('required')
+      "
+    >
+      Les coordonées sont obligatoires.</mat-error
+    >
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" class="full-width">
+    <mat-label>Nombre d'étoiles</mat-label>
+    <input
+      name="nombreEtoiles"
+      [(ngModel)]="hotel.nombreEtoiles"
+      #nombreChambres="ngModel"
+      type="number"
+      required
+      matInput
+      placeholder="100"
+    />
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" class="half-width">
+    <mat-label>Nombre de chambres</mat-label>
+    <input
+      name="nombreChambres"
+      [(ngModel)]="hotel.nombreChambres"
+      #nombreChambres="ngModel"
+      type="number"
+      required
+      matInput
+      placeholder="100"
+    />
+    <mat-error
+      *ngIf="
+        nombreChambres.invalid &&
+        (nombreChambres.dirty || nombreChambres.touched) &&
+        nombreChambres.hasError('required')
+      "
+    >
+      Nombre de chambres obligatoire.</mat-error
+    >
+  </mat-form-field>
+  <mat-form-field appearance="fill" class="full-width">
+    <mat-label>Caractéristiques</mat-label>
+    <input
+      name="caracteristiques"
+      [(ngModel)]="hotel.caracteristiques"
+      #caracteristiques="ngModel"
+      required
+      matInput
+      placeholder="a, b, c..."
+    />
+    <mat-error
+      *ngIf="
+        caracteristiques.invalid &&
+        (caracteristiques.dirty || caracteristiques.touched) &&
+        caracteristiques.hasError('required')
+      "
+    >
+      Caractéristiques sont obligatoires</mat-error
+    >
+  </mat-form-field>
+  <div class="buttons">
+    <button
+      matSuffix
+      type="submit"
+      mat-raised-button
+      [disabled]="!hotelForm.form.valid"
+      (click)="onSave(hotelForm)"
+    >
+      Appliquer
+    </button>
+    <button matSuffix type="submit" mat-raised-button (click)="onCancel()">
+      Annuler</button
+    >&nbsp;
+  </div>
+</form>

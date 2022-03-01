@@ -1,0 +1,22 @@
+<!--forfait-mini.component.html-->
+<!--Par: William John Adam Trindade-->
+<!--2021-11-15-->
+
+<mat-card>
+  <div>
+    <mat-card-subtitle
+      >{{ forfait.destination }} de {{ forfait.villeDepart }}</mat-card-subtitle
+    >
+    <mat-card-title>{{ forfait.hotel.nom }}</mat-card-title>
+    <rating-star [stars]="forfait.hotel.nombreEtoiles"></rating-star>
+  </div>
+  <div>
+    <p class="prix">{{ forfait.prix }}$</p>
+    <p class="taxes">{{ forfait.taxes }}</p>
+    <p class="dates">
+      {{ forfait.dateDepart | date: "shortDate" }} ,
+      {{ diffDateInDays(forfait.dateDepart, forfait.dateRetour) }}
+      Jours
+    </p>
+  </div>
+</mat-card>

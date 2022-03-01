@@ -1,0 +1,33 @@
+:host {
+  background-color: #ffbbaa;
+  padding: 10px;
+}
+
+div {
+  width: 100%;
+}
+
+.imageHotel {
+  width: 300px;
+  height: 300px;
+  object-fit: contain;
+}
+.prix {
+  color: #0000ff;
+  font-weight: bold;
+  font-size: 2rem;
+}
+.rabais {
+  color: #ff2020;
+  font-weight: bold;
+  font-size: 2rem;
+  text-decoration: line-through;
+}
+.taxes {
+  color: #00aaaa;
+  font-size: 1.5rem;
+}
+.dates {
+  color: #9b9b9b;
+  font-size: 1rem;
+}

@@ -1,0 +1,11 @@
+<div
+  fxLayout="row wrap"
+  fxLayout.sm="column"
+  fxLayoutWrap
+  fxLayoutGap="10.5%"
+  fxLayoutAlign="center"
+>
+  <ng-container *ngFor="let f of fvs | destinationFilter: 'Chine'">
+    <forfait-complet [forfait]="f"></forfait-complet>
+  </ng-container>
+</div>
